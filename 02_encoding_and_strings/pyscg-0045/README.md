@@ -210,8 +210,8 @@ report_record_attack(payload)
 |[MITRE CWE](http://cwe.mitre.org/)|Base: [CWE-838: Inappropriate Encoding for Output Context](https://cwe.mitre.org/data/definitions/838.html)|
 |[SEI CERT Coding Standard for Java](https://wiki.sei.cmu.edu/confluence/display/java/SEI+CERT+Oracle+Coding+Standard+for+Java)|[STR03-J. Do not encode noncharacter data as a string](https://wiki.sei.cmu.edu/confluence/display/java/STR03-J.+Do+not+encode+noncharacter+data+as+a+string)|
 |[SEI CERT Coding Standard for Java](https://wiki.sei.cmu.edu/confluence/display/java/SEI+CERT+Oracle+Coding+Standard+for+Java)|IDS11-J. Perform any string modifications before validation\[online\], available from: <https://wiki.sei.cmu.edu/confluence/display/java/IDS11-J.+Perform+any+string+modifications+before+validation> \[Accessed April 2025\]|
-|[OpenSSF Secure Coding in Python](https://github.com/ossf/wg-best-practices-os-developers/tree/main/docs/Secure-Coding-Guide-for-Python)|pyscg-0044: Canonicalize Input Before Validating], available from <https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Secure-Coding-Guide-for-Python/02_encoding_and_strings/pyscg-0044/README.md> \[Accessed April 2025\]|
-|[OpenSSF Secure Coding in Python](https://github.com/ossf/wg-best-practices-os-developers/tree/main/docs/Secure-Coding-Guide-for-Python)|pyscg-0047: Use Allow Lists Over Deny Lists \[online\], available from <https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Secure-Coding-Guide-for-Python/04_neutralization/pyscg-0047/README.md> \[Accessed April 2025\]|
+|[OpenSSF Secure Coding in Python](https://github.com/ossf/python-secure-coding-guide)|pyscg-0044: Canonicalize Input Before Validating \[online\], available from <https://github.com/ossf/python-secure-coding-guide/releases/latest> \[Accessed April 2025\]|
+|[OpenSSF Secure Coding in Python](https://github.com/ossf/python-secure-coding-guide)|pyscg-0047: Use Allow Lists Over Deny Lists \[online\], available from <https://github.com/ossf/python-secure-coding-guide/releases/latest> \[Accessed April 2025\]|
 
 ## Bibliography
 

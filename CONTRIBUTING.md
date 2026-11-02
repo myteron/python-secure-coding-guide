@@ -1,6 +1,6 @@
 # Contributor Guide
 
-This guide provides an overview of how you can help, the standards we adhere to, and the steps to get your contributions reviewed for the subpages in [wg-best-practices-os-developers/docs/Secure-Coding-Guide-for-Python/](https://github.com/ossf/wg-best-practices-os-developers/tree/main/docs/Secure-Coding-Guide-for-Python/).
+This guide provides an overview of how you can help, the standards we adhere to, and the steps to get your contributions reviewed for the subpages in [python-secure-coding-guide](https://github.com/ossf/python-secure-coding-guide/).
 
 ## Mission Statement
 

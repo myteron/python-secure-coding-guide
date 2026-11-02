@@ -2,7 +2,8 @@
 
 > Contributions welcome!<br>
 > Web: [https://best.openssf.org/Secure-Coding-Guide-for-Python/](https://best.openssf.org/Secure-Coding-Guide-for-Python/)<br>
-> GitHub: [https://github.com/ossf/wg-best-practices-os-developers/tree/main/docs/Secure-Coding-Guide-for-Python](https://github.com/ossf/wg-best-practices-os-developers/tree/main/docs/Secure-Coding-Guide-for-Python)
+> GitHub (stable release): [https://github.com/ossf/python-secure-coding-guide/releases/latest](https://github.com/ossf/python-secure-coding-guide/releases/latest)<br>
+> GitHub (development, unstable): [https://github.com/ossf/python-secure-coding-guide](https://github.com/ossf/python-secure-coding-guide)
 
 An initiative by the OpenSSF to provide new Python programmers a resource to study secure coding in `CPython >= 3.9` with working code examples.
 
