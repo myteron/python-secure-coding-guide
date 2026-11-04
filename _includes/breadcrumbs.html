@@ -1,0 +1,24 @@
+{%- comment -%}
+Breadcrumbs derived from page.url, matching the actual folder structure.
+No plugin, no external resources.
+Example: /01_introduction/pyscg-0040/ -> Home / 01_introduction / pyscg-0040
+{%- endcomment -%}
+{%- assign crumbs = page.url | split: '/' -%}
+{%- if crumbs.size > 1 -%}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">pyscg</a>
+  {%- assign path_accum = '' -%}
+  {%- for crumb in crumbs -%}
+    {%- unless crumb == '' -%}
+      {%- assign path_accum = path_accum | append: '/' | append: crumb -%}
+      {%- assign label = crumb | replace: '.html', '' -%}
+      <span class="sep"> / </span>
+      {%- if forloop.last -%}
+        <span class="current">{{ label }}</span>
+      {%- else -%}
+        <a href="{{ path_accum | append: '/' | relative_url }}">{{ label }}</a>
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endfor -%}
+</nav>
+{%- endif -%}

@@ -1,0 +1,20 @@
+<header class="site-header">
+    <div class="wrapper header-wrapper">
+      <a class="site-logo" href="https://openssf.org">
+        <img src="{{ site.baseurl }}/assets/logo.svg" alt="OpenSSF" height="85">
+      </a>
+      <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+    </div>
+    {%- if site.minima.nav_pages and site.minima.nav_pages != empty %}
+    <div class="wrapper">
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        {% include nav-items.html paths = site.minima.nav_pages %}
+      </nav>
+    </div>
+    {%- endif %}
+</header>

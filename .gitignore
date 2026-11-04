@@ -1,0 +1,14 @@
+# Local-only notes (not for the repo)
+local-site-build.md
+log.txt
+
+# Jekyll / Ruby build artifacts (never commit)
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+Gemfile.lock
+
+# OS / editor noise
+.DS_Store

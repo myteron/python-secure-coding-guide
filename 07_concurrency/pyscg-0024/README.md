@@ -4,7 +4,7 @@ Ensure thread pool tasks can be interrupted during execution to prevent resource
 
 > [!NOTE]
 > Prerequisite to understand this page:
-> [Intro to multiprocessing and multithreading](../../Intro_to_multiprocessing_and_multithreading/readme.md)
+> [Intro to multiprocessing and multithreading](../readme.md)
 
 Canceling the task in a thread pool only prevents it from being executed if it has not started yet. For the task to be interruptible, it must handle the `threading.Event` flag.
 

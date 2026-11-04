@@ -1,9 +1,9 @@
 # Secure Coding One Stop Shop for Python
 
 > Contributions welcome!<br>
-> Web: [https://best.openssf.org/Secure-Coding-Guide-for-Python/](https://best.openssf.org/Secure-Coding-Guide-for-Python/)<br>
-> GitHub (stable release): [https://github.com/ossf/python-secure-coding-guide/releases/latest](https://github.com/ossf/python-secure-coding-guide/releases/latest)<br>
-> GitHub (development, unstable): [https://github.com/ossf/python-secure-coding-guide](https://github.com/ossf/python-secure-coding-guide)
+> Latest stable release: __v1.0.0__ — [browse on GitHub](https://github.com/ossf/python-secure-coding-guide/releases/latest)<br>
+> Development version (unstable, may change): [latest `main`](https://github.com/ossf/python-secure-coding-guide)<br>
+> Published web version: [https://best.openssf.org/Secure-Coding-Guide-for-Python/](https://best.openssf.org/Secure-Coding-Guide-for-Python/)
 
 An initiative by the OpenSSF to provide new Python programmers a resource to study secure coding in `CPython >= 3.9` with working code examples.
 
@@ -11,11 +11,11 @@ Documentation is written in academic style to support security researchers while
 
 Python modules outside of the _Python Module Index_ [[Python 2026](https://docs.python.org/3/py-modindex.html)] are specifically not covered by this document.
 
-Please join us, see [contributing](CONTRIBUTING.md)
+Please join us, see [contributing](https://github.com/ossf/python-secure-coding-guide/blob/main/CONTRIBUTING.md)
 
 ## Disclaimer
 
-Content comes __WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED__, as stated in the license text [CC-BY-4.0](../../LICENSES/CC-BY-4.0.txt) for documentation and [MIT](../../LICENSES/MIT.txt).
+Content comes __WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED__, as stated in the license text [CC-BY-4.0](LICENSES/CC-BY-4.0.txt) for documentation and [MIT](LICENSES/MIT.txt).
 Following or using the documentation and or code is at your own risk. Code examples are intended purely for educational use and not for products in parts or in full.
 Code examples are NOT to be used to cause harm of any kind to anyone or anything.
 
@@ -433,6 +433,6 @@ This guide was jointly developed by the following group of awesome contributors:
 
 ## License
 
-* [CC-BY 4.0](../../LICENSES/CC-BY-4.0.txt) for documentation
-* [MIT](../../LICENSES/MIT.txt) for code snippets
+* [CC-BY 4.0](LICENSES/CC-BY-4.0.txt) for documentation
+* [MIT](LICENSES/MIT.txt) for code snippets
 * [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/legalcode.en) images from XKCD

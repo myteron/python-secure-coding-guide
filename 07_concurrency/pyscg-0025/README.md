@@ -12,7 +12,7 @@ Thread pools combine:
 
 > [!NOTE]
 > Prerequisite to understand this page:
-> [Intro to multiprocessing and multithreading](../../Intro_to_multiprocessing_and_multithreading/readme.md)
+> [Intro to multiprocessing and multithreading](../readme.md)
 
 ## Non-Compliant Code Example (Thread-Per-Message)
 

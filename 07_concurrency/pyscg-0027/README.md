@@ -4,7 +4,7 @@ In multithreaded programming, use synchronization mechanisms, such as locks, to 
 
 > [!NOTE]
 > Prerequisite to understand this page:
-> [Intro to multiprocessing and multithreading](../../Intro_to_multiprocessing_and_multithreading/readme.md)
+> [Intro to multiprocessing and multithreading](../readme.md)
 
 ## Eval Breaking Operations
 

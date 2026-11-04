@@ -4,7 +4,7 @@ Prevent unexpected states by applying correct initialized of local objects as th
 
 > [!NOTE]
 > Prerequisite to understand this page:
-> [Intro to multiprocessing and multithreading](../../Intro_to_multiprocessing_and_multithreading/readme.md)
+> [Intro to multiprocessing and multithreading](../readme.md)
 
 The `TheadPoolExecutor` provides an interface to a thread pool and resources which it reserved from the Operating System (OS). A thread in a thread-pool also known as "workers" can share an instance of a local object without overwriting each other's values inside of it [[Python docs 2023]](https://docs.python.org/3/library/threading.html#thread-local-data).
 

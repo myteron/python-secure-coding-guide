@@ -1,0 +1,58 @@
+# Jekyll configuration for the Secure Coding Guide for Python site.
+# Served via GitHub Pages from the repository root.
+title: Secure Coding Guide for Python
+description: An OpenSSF guide to secure coding in Python with working code examples.
+# Default GitHub Pages URL for this repo. If a custom domain is configured
+# later (OpenSSF infra decision), update url and add a CNAME file.
+url: "https://ossf.github.io"
+baseurl: "/python-secure-coding-guide"
+
+logo: /assets/logo.svg
+
+titles_from_headings:
+  enabled: true
+  strip_title: true
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+
+remote_theme: jekyll/minima
+
+kramdown:
+  toc_levels: 2..6
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      author: Open Source Security Foundation (OpenSSF)
+      layout: default
+
+minima:
+  skin: classic
+  show_excerpts: false
+  # Do not auto-list every page in the header nav. Empty = no nav items.
+  nav_pages: []
+  social_links:
+    - title: OpenSSF GitHub
+      icon: github
+      url: "https://github.com/ossf/python-secure-coding-guide"
+
+# Exclude repo/process files from the built site.
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - RELEASING.md
+  - templates/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .bundle/
+  - local-site-build.md
+  - log.txt
+  - migration.md
+  - research/
+  - whatsnew/
+  - "*.log"
