@@ -1,0 +1,38 @@
+---
+name: Lint Code Base
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Least-privilege token: the linter only needs to read the repo.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        # Pinned to a full commit SHA (v3) to prevent tag-repointing supply-chain attacks.
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
+        with:
+          # Full history for super-linter's changed-file detection.
+          fetch-depth: 0
+          # Later steps do not need the persisted git credentials.
+          persist-credentials: false
+
+      - name: Lint Markdown
+        # Pinned to a full commit SHA (v4) to prevent tag-repointing supply-chain attacks.
+        uses: github/super-linter@985ef206aaca4d560cb9ee2af2b42ba44adc1d55 # v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_MARKDOWN: true
+          LINTER_RULES_PATH: /
+          MARKDOWN_CONFIG_FILE: .markdownlint.yml
