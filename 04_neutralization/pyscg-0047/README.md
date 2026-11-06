@@ -112,15 +112,15 @@ The `compliant01.py` detects the unallowed character correctly and throws a `Val
 __Example compliant01.py output:__
 
 ```bash
-/wg-best-practices-os-developers/docs/Secure-Coding-Guide-for-Python/CWE-693/CWE-184/compliant01.py
+/04_neutralization/pyscg-0047/compliant01.py
 $ python3 compliant01.py
 YES 毛泽东先生
 YES dash-
 NOK <script﷯>
 Traceback (most recent call last):
-  File "/workspace/wg-best-practices-os-developers/docs/Secure-Coding-Guide-for-Python/CWE-693/CWE-184/compliant01.py", line 38, in <module>
+  File "/workspace/04_neutralization/pyscg-0047/compliant01.py", line 38, in <module>
     filter_string(name)
-  File "/workspace/wg-best-practices-os-developers/docs/Secure-Coding-Guide-for-Python/CWE-693/CWE-184/compliant01.py", line 23, in filter_string
+  File "/workspace/04_neutralization/pyscg-0047/compliant01.py", line 23, in filter_string
     raise ValueError("Invalid input tag")
 ValueError: Invalid input tag
 
