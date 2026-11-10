@@ -288,8 +288,8 @@ DEBUG:root:Adding student Malorny
 
 |||
 |:---|:---|
-|[XKCD 2007]|327 Exploits of a Mom, Available [online] from: [https://xkcd.com/327/](https://xkcd.com/327/), [Accessed 2024] |
-|[Jeff Forristal 1998]|Phrack magazine. Batch commands in ODBC and MS SQL server 6.5, Available [online]  from: [http://phrack.org/issues/54/8.html#article](http://phrack.org/issues/54/8.html#article ) [accessed 11 November 2024] |
+|[XKCD 2007]|327 Exploits of a Mom, Available [online] from: [https://xkcd.com/327/](https://xkcd.com/327/), [Accessed 2024]|
+|[Jeff Forristal 1998]|Phrack magazine. Batch commands in ODBC and MS SQL server 6.5, Available [online]  from: [http://phrack.org/issues/54/8.html#article](http://phrack.org/issues/54/8.html#article ) [accessed 11 November 2024]|
 |[Oracle 2024]|Oracle MySQL Documentation. MySQL Shell commands, Available [online] from: [https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-commands.html](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-commands.html]), [Accessed Nov 2024]|
 |[OWASP 2005]|A Guide to Building Secure Web Applications and Web Services, Available from [http://sourceforge.net/projects/owasp/files/Guide/2.0.1/OWASPGuide2.0.1.pdf/download](http://sourceforge.net/projects/owasp/files/Guide/2.0.1/OWASPGuide2.0.1.pdf/download), [Accessed Nov 2024]|
 |[MITRE 2024]|Top 25 2024, available from [https://cwe.mitre.org/top25/archive/2024/2024_cwe_top25.html](https://cwe.mitre.org/top25/archive/2024/2024_cwe_top25.html), [Accessed Nov 2024]|

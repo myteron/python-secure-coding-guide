@@ -1,0 +1,30 @@
+{
+  // Shared markdownlint config — single source of truth for every consumer:
+  //   - pre-commit hook (markdownlint-cli2)
+  //   - GitHub CI (DavidAnson/markdownlint-cli2-action)
+  //   - any editor with a markdownlint plugin (auto-reads this file; nothing
+  //     editor-specific is committed to the repo)
+  // Rule reference: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+
+  "default": true,
+
+  // MD013: line length — prose paragraphs and reference tables in this guide
+  // intentionally contain long lines and long URLs. Disable rather than reflow.
+  "MD013": false,
+
+  // MD033: inline HTML — readme.md / index.md use <table>/<tr>/<td> for the
+  // learning-path tables, which Markdown tables can't express.
+  "MD033": false,
+
+  // MD024: multiple headings with the same content — rule READMEs reuse section
+  // names like "Noncompliant Code Example" across (not within) files; only flag
+  // true duplicates among sibling headings in the same document.
+  "MD024": { "siblings_only": true },
+
+  // MD041: first line in file should be a top-level heading. Rule READMEs start
+  // with "# pyscg-XXXX: ...", so keep this on to enforce that convention.
+  "MD041": true,
+
+  // MD029: ordered list item prefix — allow "1." style ordered lists.
+  "MD029": { "style": "ordered" }
+}

@@ -1,0 +1,56 @@
+name: lint
+
+# Runs the same pre-commit hooks as the local git hook (markdownlint and Ruff),
+# so linter versions come from a single pin per tool in .pre-commit-config.yaml.
+# Only files added or modified in this push / pull request are linted;
+# unchanged (legacy) files are skipped.
+#
+# Supply-chain note: actions are pinned to full commit SHAs; the comment above
+# each 'uses:' names the release that SHA corresponds to.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        # actions/checkout v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+        with:
+          # Full history so the changed-file range can be computed.
+          fetch-depth: 0
+
+      - name: Set up Python
+        # actions/setup-python v5.3.0
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b
+        with:
+          # Oldest supported Python, proves the >= 3.9 requirement.
+          python-version: "3.9"
+
+      - name: Install pre-commit
+        run: pip install "pre-commit==3.8.0"
+
+      - name: Lint changed files
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          set -eu
+          if [ -n "$BASE_REF" ]; then
+            # Pull request: compare against the target branch.
+            from="origin/$BASE_REF"
+          elif git cat-file -e "${BEFORE_SHA}^{commit}" 2>/dev/null; then
+            # Push: compare against the commit before the push.
+            from="$BEFORE_SHA"
+          else
+            # No usable 'before' commit (e.g. new branch): last commit only.
+            from="HEAD~1"
+          fi
+          pre-commit run --from-ref "$from" --to-ref HEAD

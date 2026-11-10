@@ -1,0 +1,21 @@
+# Ruff config, shared by the IDE Ruff plugin, the pre-commit hook and GitHub CI.
+# Rule reference: https://docs.astral.sh/ruff/rules/
+
+# Oldest supported Python for the code examples.
+target-version = "py39"
+
+# Only compliantXX.py examples are checked. noncompliantXX.py examples show
+# insecure design on purpose, and exampleXX.py are illustrations, so both are
+# excluded. force-exclude applies the exclusion even when a file is passed
+# explicitly (pre-commit, IDE plugins), so every consumer behaves the same.
+extend-exclude = [
+    "**/noncompliant*.py",
+    "**/example*.py",
+]
+force-exclude = true
+
+[lint]
+# E4, E7, E9: pycodestyle errors (imports, statements, syntax), Ruff's default
+# F:          pyflakes (undefined names, unused imports, ...), Ruff's default
+# S:          flake8-bandit security checks
+select = ["E4", "E7", "E9", "F", "S"]

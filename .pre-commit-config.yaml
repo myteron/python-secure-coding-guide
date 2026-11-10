@@ -1,0 +1,30 @@
+# Pre-commit hooks for this repository.
+#
+# Requires Python >= 3.9. Pin the runner to the pre-commit 3.x line, which is
+# the last series supporting Python 3.9 (4.x requires >= 3.10):
+#
+#   pip install "pre-commit==3.8.0"
+#   pre-commit install
+#   pre-commit run --all-files
+#
+# Single version pin: the GitHub CI workflow (.github/workflows/lint.yml) runs
+# these same hooks, so each 'rev' below is the only place a linter version is
+# set. Rules live in .markdownlint.jsonc and ruff.toml.
+#
+# Supply-chain note: each 'rev' is pinned to a seasoned release (a few minors
+# behind latest), not the newest tag.
+repos:
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.22.0
+    hooks:
+      - id: markdownlint-cli2
+        name: markdownlint
+
+  # Ruff lints only compliantXX.py examples (rules and exclusions in ruff.toml).
+  # Report-only: no --fix, and the ruff-format hook is not used.
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.10
+    hooks:
+      - id: ruff
+        name: ruff
+        files: (^|/)compliant[0-9]+\.py$

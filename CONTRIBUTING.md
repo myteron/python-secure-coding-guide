@@ -122,6 +122,7 @@ The pyscg main [readme.md](readme.md) is expected to contain:
 
 The sublevel from a section, such as `01_introduction`, has individual folders per rule such as `pyscg-0040`.
 A section, such as `01_introduction`, may contain a `readme.md` outlining knowledge that spans across all rules in that section.
+
 Each rule folder, such as `pyscg-0040`, is expected to have:
 
 * Only one `README.md` file
@@ -173,13 +174,6 @@ Titles should:
 
 Idealistically we have a `noncompliantXX.py` code matching in number the `XX` number of a `compliantXX.py` example with minimal changes between the two. The noncompliant and compliant code example's are also expected to contain the defensive code at the top while having the attacker code after the "#attempting to exploit" comment. Any code examples that do not qualify as compliant or noncompliant are named `exampleXX.py`.
 
-To avoid running into linters or lighting up the programming IDE of others ensure to have the following installed:
-
-* `Ruff` with enabled `flake8-bandit` plugin
-* `GitHub` `Markdown` linter such as `markdownlint` (this is enforced via GitHub action) * `Python` type hints.
-
-Linter warnings should be kept to a minimum.
-
 Keep code examples as short while using simple Python, it's not about showing off python programming skills and must be kept accessible to beginners.
 
 There is the option to add `# TODO:` instead of overloading compliant code examples with all aspects of an end to end secure solution.
@@ -206,12 +200,14 @@ See [RELEASING.md](RELEASING.md) for the release procedure and
 
 The `main` is the development branch for future releases and a released version gets its own release branch such as `1.x` tagged as `Latest` and published as GitHub Release.
 
+```text
   main ──●──●──●──●──●──●──▶   (v2 development)
     (v1.0.0)
           \
            ●─────●─────●──────▶   1.x  (maintenance branch)
            │     │     │
          v1.0.1 v1.0.2 v1.0.3    ← tags along the branch
+```
 
 #### Release channels via tags
 
@@ -226,7 +222,7 @@ Pre-release tags are published as GitHub `Pre-release` (not marked `Latest`).
 
 ### Submitting Your Contribution
 
-1. __Fork the project into your own github space__: cllick on the Fork option while viewing the top level of the project.
+1. __Fork the project into your own github space__: click on the Fork option while viewing the top level of the project.
 2. __Create a new branch:__ Use descriptive names for branches, e.g., `issue-123` or  `add-logging-feature` using `git checkout -b branch-name`
 3. __Make your changes:__ Commit your changes with clear and concise commit messages.
 4. __Push your changes:__ Push your branch to your forked repository. `git push origin branch-name`
@@ -234,10 +230,71 @@ Pre-release tags are published as GitHub `Pre-release` (not marked `Latest`).
 
 ### Review Process
 
-A Pull Request is expected to have approval of at least 2 reviewers. One reviewer must be part of the core team for this Python project. The second can be anyone feeling bra1ve enough who has a GitHub account.
+A Pull Request is expected to have approval of at least 2 reviewers. One reviewer must be part of the core team for this Python project. The second can be anyone feeling brave enough who has a GitHub account.
 
 Once you submit a pull request:
 
 * A project maintainer will review your submission.
 * You may be asked to make revisions based on feedback.
 * Once approved, your changes will be merged into the main branch.
+
+### Code Quality Gates
+
+Catching issues early reduces frustration and time spent on PRs, but requires setting up the plugins and dependencies described in this section.
+
+Flow of Gating:
+
+```text
+                  Local machine                   ┆  GitHub (world wide)
+                                                  ┆
+┌──────────────────┐   ┌────────────────────┐     ┆      ┌────────────────────────┐
+│ Local coding IDE │──>│   Local git hook   │─────┆─────>│ GitHub Actions for PRs │
+│    (optional)    │   │ (kind of enforced) │     ┆      │       (enforced)       │
+└──────────────────┘   └────────────────────┘     ┆      └────────────────────────┘
+                                              git push
+```
+
+PRs enforce quality and reject a PR commit on github but are ultimately too late in the process to avoid running into them.
+The perfect spot to see issues is in your programming IDE and local machine. Anything caught locally prevents noise and frustration for everyone.
+
+#### Programming IDE plugins
+
+Adding matching code checks to the programming IDE shows bugs, typos and overall code quality issues while writing the code and before committing code changes. Make sure to have the following plugins:
+
+* markdownlint by David Anson
+* `Ruff` by Astral, it reads [ruff.toml](ruff.toml), which enables the `flake8-bandit` security rules (`S`) and limits checks to `compliantXX.py` examples
+* `Python` type hints.
+
+Any editor with a markdownlint integration picks up `.markdownlint.jsonc` automatically, for example the markdownlint extension for VS Code, `nvim-lint` for Neovim, or flycheck for Emacs. The editor plugin may bundle a different markdownlint version, so the git hook and CI are authoritative.
+
+#### Githook CLI Dependencies
+
+Githooks run prior to pushing code to avoid premature code creating notifications and noise on GitHub but require to install dependencies locally:
+
+* One-time setup of the git hook (requires Python >= 3.9):
+
+```bash
+python3 -m venv .venv && . .venv/bin/activate   # optional, needed where system pip is externally managed
+pip install "pre-commit==3.8.0"
+pre-commit install
+```
+
+After setup, `git commit` lints the staged Markdown files and `compliantXX.py` examples. To check without committing:
+
+```bash
+git add <file>
+pre-commit run                  # staged files only
+pre-commit run --all-files      # every file, including unchanged ones
+```
+
+#### GitHub Actions
+
+GitHub Actions run on GitHub for pull requests and pushes to `main` and do not require local installation.
+The following is for information only.
+
+Markdown is checked with [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2).
+
+* Rules are in [.markdownlint.jsonc](.markdownlint.jsonc) and the version is pinned once in [.pre-commit-config.yaml](.pre-commit-config.yaml)
+* GitHub CI runs the same hook, so local and CI results match.
+* Only added or modified Markdown files are checked, unchanged files are not
+* The linter reports issues and blocks the commit or pull request, it does not change files.
