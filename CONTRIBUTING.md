@@ -292,9 +292,10 @@ pre-commit run --all-files      # every file, including unchanged ones
 GitHub Actions run on GitHub for pull requests and pushes to `main` and do not require local installation.
 The following is for information only.
 
-Markdown is checked with [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2).
+Markdown is checked with [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) and `compliantXX.py` examples with [Ruff](https://docs.astral.sh/ruff/).
 
-* Rules are in [.markdownlint.jsonc](.markdownlint.jsonc) and the version is pinned once in [.pre-commit-config.yaml](.pre-commit-config.yaml)
-* GitHub CI runs the same hook, so local and CI results match.
-* Only added or modified Markdown files are checked, unchanged files are not
-* The linter reports issues and blocks the commit or pull request, it does not change files.
+* Rules are in [.markdownlint.jsonc](.markdownlint.jsonc) and [ruff.toml](ruff.toml), versions are pinned once in [.pre-commit-config.yaml](.pre-commit-config.yaml)
+* GitHub CI runs the same hooks, so local and CI results match.
+* Only added or modified files are checked, unchanged files are not
+* `noncompliantXX.py` and `exampleXX.py` are not checked by Ruff, as noncompliant examples show insecure code on purpose
+* The linters report issues and block the commit or pull request, they do not change files.
