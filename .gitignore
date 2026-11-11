@@ -1,2 +1,3 @@
 # Local Python virtual environment (pre-commit setup, see CONTRIBUTING.md)
 .venv/
+temp/
